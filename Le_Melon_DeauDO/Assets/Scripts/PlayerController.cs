@@ -7,8 +7,11 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rigidbody;
     public float Speed = 5f, Force = 300f;
-    public bool playerJump = false, playerIsJumping = false;
+    public bool playerJump = false, playerIsJumping = false, unplacedTurretActive = false;
     float axisX;
+    public Vector3 playerPosition;
+
+    public GameObject unplacedTurretObject;
 
     private void Start()
     {
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        playerPosition = transform.position;  
         transform.Translate(Vector2.right * Speed * axisX * Time.deltaTime);
     }
 
@@ -39,6 +43,21 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue val)
     {
         axisX = val.Get<float>();
+    }
+
+    public void OnPlaceTurret()
+    {
+        if (!unplacedTurretActive)
+        {
+            unplacedTurretObject.SetActive(true);
+            unplacedTurretActive = true;
+        }
+        else
+        {
+            unplacedTurretObject.SetActive(false);
+            unplacedTurretActive = false;
+        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
