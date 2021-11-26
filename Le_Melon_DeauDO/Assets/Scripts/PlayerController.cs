@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rigidbody;
     public float Speed = 5f, Force = 300f;
-    public bool playerJump = false;
+    public bool playerJump = false, playerIsJumping = false;
     float axisX;
 
     private void Start()
@@ -30,12 +30,31 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump()
     {
-        playerJump = true;
+        if(!playerIsJumping)
+        {
+            playerJump = true;
+        }
     }
 
     public void OnMove(InputValue val)
     {
         axisX = val.Get<float>();
-        Debug.Log(axisX);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Floor")
+        {
+            playerIsJumping = false;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            playerIsJumping = true;
+        }
+    }
+
 }

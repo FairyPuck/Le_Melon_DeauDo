@@ -366,6 +366,7 @@ MonoBehaviour:
   Speed: 5
   Force: 300
   playerJump: 0
+  playerIsJumping: 0
 --- !u!114 &974326641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,7 +431,7 @@ GameObject:
   - component: {fileID: 1071072459}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
