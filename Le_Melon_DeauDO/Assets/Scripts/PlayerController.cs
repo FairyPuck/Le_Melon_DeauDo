@@ -5,31 +5,32 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D rigidbody;
+    Rigidbody2D rigidBody;
     public float Speed = 5f, Force = 300f;
     public bool playerJump = false, playerIsJumping = false, unplacedTurretActive = false;
-    float axisX;
+    float axisXGet, axisXSet;
     public Vector3 playerPosition;
+    public Quaternion rotate;
 
     public GameObject unplacedTurretObject;
 
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate()
     {
         if(playerJump)
         {
             playerJump = false;
-            rigidbody.AddForce(Vector3.up * Force);
+            rigidBody.AddForce(Vector3.up * Force);
         }
     }
 
     private void Update()
     {
         playerPosition = transform.position;  
-        transform.Translate(Vector2.right * Speed * axisX * Time.deltaTime);
+        transform.Translate(Vector2.right * Speed * axisXSet * Time.deltaTime);
     }
 
     public void OnJump()
@@ -42,7 +43,20 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputValue val)
     {
-        axisX = val.Get<float>();
+        axisXGet = val.Get<float>();
+        if(axisXGet == 1)
+        {
+            rotate = Quaternion.Euler(0, 180, 0);
+            transform.rotation = rotate;
+            axisXSet = -1;
+        }
+        else if(axisXGet == -1)
+        {
+            rotate = Quaternion.Euler(0, 0, 0);
+            transform.rotation = rotate;
+            axisXSet = -1;
+        }
+        else axisXSet = 0;
     }
 
     public void OnPlaceTurret()
