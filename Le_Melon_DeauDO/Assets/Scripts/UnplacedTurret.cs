@@ -4,13 +4,34 @@ using UnityEngine;
 
 public class UnplacedTurret : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool canPlaceTheTurret = true;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.tag == "turret")
+        {
+            GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+            canPlaceTheTurret = false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    private void OnTriggerExit2D(Collider2D collision)
+    {   
+        if (collision.tag == "turret")
+        {
+            GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+            canPlaceTheTurret = true;
+        }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "turret")
+        {
+            GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+            canPlaceTheTurret = false;
+        }
+    }
+
+
 }

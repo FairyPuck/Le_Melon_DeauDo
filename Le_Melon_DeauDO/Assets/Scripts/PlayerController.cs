@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rigidBody;
     public float Speed = 5f, Force = 300f;
-    public bool playerJump = false, playerIsJumping = false, unplacedTurretActive = false;
+    public bool playerJump = false, playerIsJumping = false;
     float axisXGet, axisXSet;
     public Vector3 playerPosition;
     public Quaternion rotate;
 
-    public GameObject unplacedTurretObject;
+    public bool unplacedTurretActive = false, canPlaceTheTurret = true;
+    public GameObject unplacedTurretObject, turretObject;
+
+
+    public GameObject popupBox;
+    //public Animator animator;
+    public TMP_Text popupText;
 
     private void Start()
     {
@@ -31,6 +38,13 @@ public class PlayerController : MonoBehaviour
     {
         playerPosition = transform.position;  
         transform.Translate(Vector2.right * Speed * axisXSet * Time.deltaTime);
+    }
+
+    public void PopUp(string text)
+    {
+        popupBox.SetActive(true);
+        popupText.text = text;
+        //animator.SetTrigger("pop");
     }
 
     public void OnJump()
@@ -68,6 +82,17 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            
+            if (unplacedTurretObject.GetComponent<UnplacedTurret>().canPlaceTheTurret)
+            {
+                GameObject newTurret = GameObject.Instantiate(turretObject);
+                newTurret.transform.position = unplacedTurretObject.transform.position;
+                newTurret.SetActive(true);
+            }
+            else
+            {
+                PopUp("You cannot place the turret here !");
+            }
             unplacedTurretObject.SetActive(false);
             unplacedTurretActive = false;
         }
@@ -88,6 +113,11 @@ public class PlayerController : MonoBehaviour
         {
             playerIsJumping = true;
         }
+    }
+
+    public void turretCanBePlaced(bool canTurretBePlaced)
+    {
+        canPlaceTheTurret = canTurretBePlaced;
     }
 
 }
