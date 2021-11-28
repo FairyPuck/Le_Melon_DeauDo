@@ -88,13 +88,13 @@ public class PlayerController : MonoBehaviour
                 GameObject newTurret = GameObject.Instantiate(turretObject);
                 newTurret.transform.position = unplacedTurretObject.transform.position;
                 newTurret.SetActive(true);
+                unplacedTurretObject.SetActive(false);
+                unplacedTurretActive = false;
             }
             else
             {
                 PopUp("You cannot place the turret here !");
             }
-            unplacedTurretObject.SetActive(false);
-            unplacedTurretActive = false;
         }
         
     }
@@ -113,11 +113,6 @@ public class PlayerController : MonoBehaviour
         {
             playerIsJumping = true;
         }
-    }
-
-    public void turretCanBePlaced(bool canTurretBePlaced)
-    {
-        canPlaceTheTurret = canTurretBePlaced;
     }
 
 }
