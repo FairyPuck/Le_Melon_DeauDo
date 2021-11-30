@@ -5,12 +5,24 @@ using UnityEngine;
 public class UnplacedTurret : MonoBehaviour
 {
     public bool canPlaceTheTurret = true;
+    public GameObject playerObject;
 
+    private void Update()
+    {
+        if (canPlaceTheTurret && !playerObject.GetComponent<PlayerController>().playerIsJumping)
+        {
+            GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+        }
+        else
+        {
+            GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "turret")
         {
-            GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             canPlaceTheTurret = false;
         }
     }
@@ -19,7 +31,6 @@ public class UnplacedTurret : MonoBehaviour
     {   
         if (collision.tag == "turret")
         {
-            GetComponent<Renderer>().material.SetColor("_Color", Color.white);
             canPlaceTheTurret = true;
         }
     }
@@ -28,7 +39,6 @@ public class UnplacedTurret : MonoBehaviour
     {
         if (collision.tag == "turret")
         {
-            GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             canPlaceTheTurret = false;
         }
     }

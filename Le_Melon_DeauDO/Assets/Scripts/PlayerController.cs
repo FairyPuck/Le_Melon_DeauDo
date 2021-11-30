@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 playerPosition;
     public Quaternion rotate;
 
-    public bool unplacedTurretActive = false, canPlaceTheTurret = true;
+    public bool unplacedTurretActive = false;
     public GameObject unplacedTurretObject, turretObject;
 
 
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             
-            if (unplacedTurretObject.GetComponent<UnplacedTurret>().canPlaceTheTurret)
+            if (unplacedTurretObject.GetComponent<UnplacedTurret>().canPlaceTheTurret && !playerIsJumping)
             {
                 GameObject newTurret = GameObject.Instantiate(turretObject);
                 newTurret.transform.position = unplacedTurretObject.transform.position;
@@ -103,6 +103,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Floor")
         {
+            unplacedTurretObject.GetComponent<UnplacedTurret>().canPlaceTheTurret = true;
             playerIsJumping = false;
         }
     }
@@ -111,6 +112,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Floor")
         {
+            unplacedTurretObject.GetComponent<UnplacedTurret>().canPlaceTheTurret = false;
             playerIsJumping = true;
         }
     }
