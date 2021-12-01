@@ -17,9 +17,9 @@ public class PlayerController : MonoBehaviour
     public GameObject unplacedTurretObject, turretObject;
 
 
-    public GameObject popupBox;
+    //public GameObject popupBox;
     //public Animator animator;
-    public TMP_Text popupText;
+    //public TMP_Text popupText;
 
     private void Start()
     {
@@ -40,12 +40,12 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector2.right * Speed * axisXSet * Time.deltaTime);
     }
 
-    public void PopUp(string text)
-    {
-        popupBox.SetActive(true);
-        popupText.text = text;
-        //animator.SetTrigger("pop");
-    }
+    //public void PopUp(string text)
+    //{
+    //    popupBox.SetActive(true);
+    //    popupText.text = text;
+    //    //animator.SetTrigger("pop");
+    //}
 
     public void OnJump()
     {
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                PopUp("You cannot place the turret here !");
+                //PopUp("You cannot place the turret here !");
             }
         }
         
