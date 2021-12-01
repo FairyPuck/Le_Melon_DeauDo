@@ -20,7 +20,9 @@ public class Bullets : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GameObject.Destroy(gameObject);
-
+        if(collision.gameObject.tag != "Bullet")
+        {
+            GameObject.Destroy(gameObject);
+        }
     }
 }

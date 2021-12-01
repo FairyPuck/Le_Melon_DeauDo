@@ -9,6 +9,7 @@ TagManager:
   - unplacedTurret
   - Melon
   - Bullet
+  - Dodo
   layers:
   - Default
   - TransparentFX
