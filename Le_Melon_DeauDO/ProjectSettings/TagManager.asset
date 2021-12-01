@@ -8,6 +8,7 @@ TagManager:
   - turret
   - unplacedTurret
   - Melon
+  - Bullet
   layers:
   - Default
   - TransparentFX

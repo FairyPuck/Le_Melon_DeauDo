@@ -14,10 +14,8 @@ public class DodosSpawn : MonoBehaviour
     }
     IEnumerator DodosSpawning(int dodosNumber)
     {
-        Debug.Log("iygf");
         while (dodosNumber != 0)
         {
-            Debug.Log("start");
             GameObject Dodo = GameObject.Instantiate(Dodos);
             Dodo.SetActive(true);
             yield return new WaitForSeconds(2);
