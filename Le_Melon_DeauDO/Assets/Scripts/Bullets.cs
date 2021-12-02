@@ -5,17 +5,22 @@ using UnityEngine;
 public class Bullets : MonoBehaviour
 {
     public float speed;
-    public Rigidbody2D rb;
     public Transform turretTransform;
+    private Transform targetTransform;
+    private GameObject dodoTarget;
+    public GameObject motionSensorObject;
+
 
     private void Start()
     {
-        transform.position = new Vector3(turretTransform.position.x, turretTransform.position.y-0.5f, turretTransform.position.z);
+        transform.position = new Vector3(turretTransform.position.x+1, turretTransform.position.y-0.5f, turretTransform.position.z);
+        dodoTarget = motionSensorObject.GetComponent<MotionSensor>().dodoTarget;
+        targetTransform = dodoTarget.transform;
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(speed * Time.fixedDeltaTime, rb.velocity.y);
+        transform.position = Vector2.MoveTowards(transform.position, targetTransform.position, speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

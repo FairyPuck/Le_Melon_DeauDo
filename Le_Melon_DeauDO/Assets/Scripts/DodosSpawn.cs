@@ -5,11 +5,12 @@ using UnityEngine;
 public class DodosSpawn : MonoBehaviour
 {
     public GameObject Dodos;
+    public int dodosNumber;
     private IEnumerator coroutine;
 
     void Start()
     {
-        coroutine = DodosSpawning(100);
+        coroutine = DodosSpawning(dodosNumber);
         StartCoroutine(coroutine);
     }
     IEnumerator DodosSpawning(int dodosNumber)

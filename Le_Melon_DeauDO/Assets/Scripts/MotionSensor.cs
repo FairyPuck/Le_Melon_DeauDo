@@ -5,6 +5,7 @@ using UnityEngine;
 public class MotionSensor : MonoBehaviour
 {
     public bool active = false;
+    public GameObject dodoTarget;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,6 +19,7 @@ public class MotionSensor : MonoBehaviour
     {
         if (collision.gameObject.tag == "Dodo")
         {
+            dodoTarget = collision.gameObject;
             active = true;
         }
     }

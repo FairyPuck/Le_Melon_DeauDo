@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 974326642}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1245,6 +1245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
+  dodoTarget: {fileID: 0}
 --- !u!212 &1096178791
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1327,6 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dodos: {fileID: 1845220069}
+  dodosNumber: 0
 --- !u!212 &1156647778
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1533,6 +1535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dodos: {fileID: 1842311664}
+  dodosNumber: 3
 --- !u!212 &1315835293
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1974,9 +1977,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b216e18062e8d4385a52e4b7429d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -500
-  rb: {fileID: 1977498539}
+  speed: 5
   turretTransform: {fileID: 513514630}
+  motionSensorObject: {fileID: 1096178787}
 --- !u!70 &1977498538
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2008,9 +2011,9 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 0
