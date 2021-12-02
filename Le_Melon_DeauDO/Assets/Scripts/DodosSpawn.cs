@@ -9,7 +9,7 @@ public class DodosSpawn : MonoBehaviour
 
     void Start()
     {
-       coroutine = DodosSpawning(4);
+        coroutine = DodosSpawning(100);
         StartCoroutine(coroutine);
     }
     IEnumerator DodosSpawning(int dodosNumber)
@@ -18,7 +18,7 @@ public class DodosSpawn : MonoBehaviour
         {
             GameObject Dodo = GameObject.Instantiate(Dodos);
             Dodo.SetActive(true);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(0.5f);
             dodosNumber--;
         }
     }

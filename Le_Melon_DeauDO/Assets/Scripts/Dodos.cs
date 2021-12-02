@@ -7,6 +7,12 @@ public class Dodos : MonoBehaviour
     public float walkSpeed, healthPoint;
     public Rigidbody2D rb;
     public GameObject melonObject;
+    public Transform spawnerTransform;
+
+    private void Start()
+    {
+        transform.position = spawnerTransform.position;
+    }
 
     private void Update()
     {
@@ -19,7 +25,7 @@ public class Dodos : MonoBehaviour
 
     private void hurt()
     {
-        healthPoint -= 33;
+        healthPoint -= 40;
         if(healthPoint <= 0)
         {
             die();

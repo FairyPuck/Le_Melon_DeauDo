@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class MelonDeauDO : MonoBehaviour
 {
@@ -31,5 +33,7 @@ public class MelonDeauDO : MonoBehaviour
     private void MelonDie()
     {
         GameObject.Destroy(gameObject);
+        SceneManager.LoadScene(2);
+
     }
 }
