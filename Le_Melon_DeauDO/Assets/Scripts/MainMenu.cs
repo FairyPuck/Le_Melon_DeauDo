@@ -1,21 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
-{
-    public Button playButton;
-
-    void Start()
+public class MainMenu : MonoBehaviour {
+    
+    public void PlayGame ()
     {
-        Button retry = playButton.GetComponent<Button>();
-        retry.onClick.AddListener(Play);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+   
+    public void QuitGame ()
+    {
+        Debug.Log("QUIT !");
+        Application.Quit();
     }
 
-    void Play()
-    {
-        SceneManager.LoadScene(1);
-    }
 }
