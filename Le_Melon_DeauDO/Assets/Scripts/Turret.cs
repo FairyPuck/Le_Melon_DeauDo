@@ -16,7 +16,6 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(motionSensorObject.GetComponent<MotionSensor>().active);
     }
 
     IEnumerator DodosSpawning(int bulletsNumber)
@@ -32,7 +31,6 @@ public class Turret : MonoBehaviour
             }
             else
             {
-                Debug.Log("here");
                 yield return new WaitForSeconds(0.1f);
             }
         }
