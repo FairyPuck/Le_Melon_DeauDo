@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: idleTurret
+  m_Name: walkingDodo
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 7f7c687534f0ac84d8db9cb33f4df454, type: 3}
-    - time: 0.21666667
-      value: {fileID: 21300000, guid: 3add1538c6f71ff469470dcc52a8daee, type: 3}
-    - time: 0.41666666
-      value: {fileID: 21300000, guid: 7f7c687534f0ac84d8db9cb33f4df454, type: 3}
+      value: {fileID: 21300000, guid: bbd301a38b44765408683af584ae80f1, type: 3}
+    - time: 0.1
+      value: {fileID: 21300000, guid: c141b1b4cc5bd6740b453dcd09dc42df, type: 3}
+    - time: 0.2
+      value: {fileID: 21300000, guid: e53d11c56f407eb48981dfaf852fa1d1, type: 3}
+    - time: 0.3
+      value: {fileID: 21300000, guid: 0a1d326b53651cb4b97295e8c2c692e2, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,15 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 7f7c687534f0ac84d8db9cb33f4df454, type: 3}
-    - {fileID: 21300000, guid: 3add1538c6f71ff469470dcc52a8daee, type: 3}
-    - {fileID: 21300000, guid: 7f7c687534f0ac84d8db9cb33f4df454, type: 3}
+    - {fileID: 21300000, guid: bbd301a38b44765408683af584ae80f1, type: 3}
+    - {fileID: 21300000, guid: c141b1b4cc5bd6740b453dcd09dc42df, type: 3}
+    - {fileID: 21300000, guid: e53d11c56f407eb48981dfaf852fa1d1, type: 3}
+    - {fileID: 21300000, guid: 0a1d326b53651cb4b97295e8c2c692e2, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.43333334
+    m_StopTime: 0.3166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
