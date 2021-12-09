@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public Quaternion rotate;
 
     public bool unplacedTurretActive = false;
-    public GameObject unplacedTurretObject, turretObject;
+    public GameObject unplacedTurretObject, turretObject, resourcesUI;
 
 
     //public GameObject popupBox;
@@ -83,7 +83,12 @@ public class PlayerController : MonoBehaviour
         else
         {
             
-            if (unplacedTurretObject.GetComponent<UnplacedTurret>().canPlaceTheTurret && !playerIsJumping)
+            if (
+                unplacedTurretObject.GetComponent<UnplacedTurret>().canPlaceTheTurret 
+                && !playerIsJumping 
+                && resourcesUI.GetComponent<Resources>().metal >= 50 
+                && resourcesUI.GetComponent<Resources>().melonJuice >= 50
+                )
             {
                 GameObject newTurret = GameObject.Instantiate(turretObject);
                 newTurret.transform.position = unplacedTurretObject.transform.position;

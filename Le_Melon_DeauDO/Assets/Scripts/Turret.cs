@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    public GameObject bulletObject, motionSensorObject;
+    public GameObject bulletObject, motionSensorObject, resourcesUI;
     private IEnumerator coroutine;
     public int bulletsNumber;
 
     void Start()
     {
+        resourcesUI.GetComponent<Resources>().MakeTurret();
         coroutine = DodosSpawning(bulletsNumber);
         StartCoroutine(coroutine);
     }
@@ -24,7 +25,7 @@ public class Turret : MonoBehaviour
         {
             if (motionSensorObject.GetComponent<MotionSensor>().active)
             {
-                GameObject Dodo = GameObject.Instantiate(bulletObject);
+                GameObject Dodo = GameObject.Instantiate(bulletObject); 
                 Dodo.SetActive(true);
                 yield return new WaitForSeconds(1);
                 bulletsNumber--;

@@ -6,7 +6,7 @@ public class Dodos : MonoBehaviour
 {
     public float walkSpeed, healthPoint;
     public Rigidbody2D rb;
-    public GameObject melonObject;
+    public GameObject melonObject, resourcesUI;
     public Transform spawnerTransform;
 
     private void Start()
@@ -34,6 +34,7 @@ public class Dodos : MonoBehaviour
 
     private void die()
     {
+        resourcesUI.GetComponent<Resources>().DodoDie();
         GameObject.Destroy(gameObject);
     }
 

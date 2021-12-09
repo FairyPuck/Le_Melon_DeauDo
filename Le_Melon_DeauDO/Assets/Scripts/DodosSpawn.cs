@@ -7,7 +7,7 @@ public class DodosSpawn : MonoBehaviour
     public GameObject Dodos;
     private IEnumerator wavesCouroutine, spawningCouroutine;
     private List<int> dodosNumberPerWave = new List<int>();
-    public int[] dodosNumberPerWaveArray = { 3, 8, 15, 30, 60, 70, 90 };
+    public int[] dodosNumberPerWaveArray = { 1, 3, 5, 7, 9, 10, 12 };
 
 
     void Start()
