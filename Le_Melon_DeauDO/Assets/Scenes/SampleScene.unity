@@ -2054,7 +2054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dodos: {fileID: 1845220069}
-  dodosNumberPerWaveArray: 01000000020000000300000004000000050000000600000007000000
+  dodosNumberPerWaveArray: 00000000020000000300000004000000050000000600000007000000
 --- !u!212 &1156647778
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2261,7 +2261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dodos: {fileID: 1842311664}
-  dodosNumberPerWaveArray: 03000000080000000f0000001e0000003c000000460000005a000000
+  dodosNumberPerWaveArray: 01000000000000000000000001000000020000000200000003000000
 --- !u!212 &1315835293
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2401,7 +2401,7 @@ MonoBehaviour:
   healthPoint: 100
   rb: {fileID: 1842311666}
   melonObject: {fileID: 708871994}
-  resourcesUI: {fileID: 0}
+  resourcesUI: {fileID: 146301120}
   spawnerTransform: {fileID: 1315835294}
 --- !u!212 &1842311668
 SpriteRenderer:
