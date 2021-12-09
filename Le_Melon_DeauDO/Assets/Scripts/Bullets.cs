@@ -13,7 +13,7 @@ public class Bullets : MonoBehaviour
 
     private void Start()
     {
-        transform.position = new Vector3(turretTransform.position.x+1, turretTransform.position.y-0.5f, turretTransform.position.z);
+        transform.position = new Vector3(turretTransform.position.x-0.75f, turretTransform.position.y+0.4f, turretTransform.position.z);
         dodoTarget = motionSensorObject.GetComponent<MotionSensor>().dodoTarget;
         targetTransform = dodoTarget.transform;
     }
