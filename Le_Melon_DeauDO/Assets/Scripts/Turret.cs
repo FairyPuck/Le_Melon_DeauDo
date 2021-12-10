@@ -11,8 +11,9 @@ public class Turret : MonoBehaviour
 
     void Start()
     {
+        firingTurret = GetComponent<Animator>();
         resourcesUI.GetComponent<Resources>().MakeTurret();
-        coroutine = DodosSpawning(bulletsNumber);
+        coroutine = TurretFiring(bulletsNumber);
         StartCoroutine(coroutine);
     }
 
@@ -20,23 +21,24 @@ public class Turret : MonoBehaviour
     {
     }
 
-    IEnumerator DodosSpawning(int bulletsNumber)
+    IEnumerator TurretFiring(int bulletsNumber)
     {
-        while (true)
+        while(bulletsNumber != 0)
         {
             if (motionSensorObject.GetComponent<MotionSensor>().active)
             {
-                GameObject Dodo = GameObject.Instantiate(bulletObject); 
+                firingTurret.SetBool("isFiring", true);
+                GameObject Dodo = GameObject.Instantiate(bulletObject);
                 Dodo.SetActive(true);
                 yield return new WaitForSeconds(0.4f);
-                firingTurret.SetBool("isFiring", true);
 
             }
             else
             {
+                firingTurret.SetBool("isFiring", false);
                 yield return new WaitForSeconds(0.1f);
+
             }
         }
-        
     }
 }

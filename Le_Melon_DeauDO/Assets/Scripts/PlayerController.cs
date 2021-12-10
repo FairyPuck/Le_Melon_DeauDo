@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        bodyAnimator = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
@@ -54,29 +55,32 @@ public class PlayerController : MonoBehaviour
         if(!playerIsJumping)
         {
             playerJump = true;
-            bodyAnimator.SetBool("isJumping", true);
         }
-        bodyAnimator.SetBool("isJumping", false);
     }
 
     public void OnMove(InputValue val)
     {
         axisXGet = val.Get<float>();
-        if(axisXGet == 1)
+        if (axisXGet == 1)
         {
             rotate = Quaternion.Euler(0, 180, 0);
             transform.rotation = rotate;
             axisXSet = -1;
             bodyAnimator.SetBool("isWalking", true);
         }
-        else if(axisXGet == -1)
+        else if (axisXGet == -1)
         {
             rotate = Quaternion.Euler(0, 0, 0);
             transform.rotation = rotate;
             axisXSet = -1;
             bodyAnimator.SetBool("isWalking", true);
         }
-        else axisXSet = 0;
+        else
+        {
+            axisXSet = 0;
+            bodyAnimator.SetBool("isWalking", false);
+        }
+
     }
 
     public void OnPlaceTurret()
@@ -116,6 +120,8 @@ public class PlayerController : MonoBehaviour
         {
             unplacedTurretObject.GetComponent<UnplacedTurret>().canPlaceTheTurret = true;
             playerIsJumping = false;
+            bodyAnimator.SetBool("isJumping", false);
+
         }
     }
 
@@ -125,6 +131,8 @@ public class PlayerController : MonoBehaviour
         {
             unplacedTurretObject.GetComponent<UnplacedTurret>().canPlaceTheTurret = false;
             playerIsJumping = true;
+            bodyAnimator.SetBool("isWalking", false);
+            bodyAnimator.SetBool("isJumping", true);
         }
     }
 
