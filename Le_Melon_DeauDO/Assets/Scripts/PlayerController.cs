@@ -54,7 +54,9 @@ public class PlayerController : MonoBehaviour
         if(!playerIsJumping)
         {
             playerJump = true;
+            bodyAnimator.SetBool("isJumping", true);
         }
+        bodyAnimator.SetBool("isJumping", false);
     }
 
     public void OnMove(InputValue val)
