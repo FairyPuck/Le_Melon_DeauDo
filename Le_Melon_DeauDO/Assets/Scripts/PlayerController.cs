@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public bool unplacedTurretActive = false;
     public GameObject unplacedTurretObject, turretObject, resourcesUI;
 
+    public Animator bodyAnimator;
+
 
     //public GameObject popupBox;
     //public Animator animator;
@@ -63,12 +65,14 @@ public class PlayerController : MonoBehaviour
             rotate = Quaternion.Euler(0, 180, 0);
             transform.rotation = rotate;
             axisXSet = -1;
+            bodyAnimator.SetBool("isWalking", true);
         }
         else if(axisXGet == -1)
         {
             rotate = Quaternion.Euler(0, 0, 0);
             transform.rotation = rotate;
             axisXSet = -1;
+            bodyAnimator.SetBool("isWalking", true);
         }
         else axisXSet = 0;
     }
