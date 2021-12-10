@@ -92,8 +92,8 @@ public class PlayerController : MonoBehaviour
             if (
                 unplacedTurretObject.GetComponent<UnplacedTurret>().canPlaceTheTurret 
                 && !playerIsJumping 
-                && resourcesUI.GetComponent<Resources>().metal >= 50 
-                && resourcesUI.GetComponent<Resources>().melonJuice >= 50
+                && resourcesUI.GetComponent<Resources>().metal >= 20 
+                && resourcesUI.GetComponent<Resources>().melonJuice >= 20
                 )
             {
                 GameObject newTurret = GameObject.Instantiate(turretObject);

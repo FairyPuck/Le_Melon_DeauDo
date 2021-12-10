@@ -7,6 +7,7 @@ public class Turret : MonoBehaviour
     public GameObject bulletObject, motionSensorObject, resourcesUI;
     private IEnumerator coroutine;
     public int bulletsNumber;
+    public Animator firingTurret;
 
     void Start()
     {
@@ -21,14 +22,15 @@ public class Turret : MonoBehaviour
 
     IEnumerator DodosSpawning(int bulletsNumber)
     {
-        while (bulletsNumber != 0)
+        while (true)
         {
             if (motionSensorObject.GetComponent<MotionSensor>().active)
             {
                 GameObject Dodo = GameObject.Instantiate(bulletObject); 
                 Dodo.SetActive(true);
-                yield return new WaitForSeconds(1);
-                bulletsNumber--;
+                yield return new WaitForSeconds(0.4f);
+                firingTurret.SetBool("isFiring", true);
+
             }
             else
             {

@@ -5,7 +5,7 @@ using TMPro;
 
 public class Resources : MonoBehaviour
 {
-    public int melonJuice = 75, metal = 50, dodoDieCount = 20;
+    public int melonJuice, metal, dodoDieCount;
     public TextMeshProUGUI juiceValue, metalValue;
 
     private void FixedUpdate()
@@ -17,8 +17,8 @@ public class Resources : MonoBehaviour
 
     public void MakeTurret()
     {
-        melonJuice -= 50;
-        metal -= 50;
+        melonJuice -= 15;
+        metal -= 15;
     }
 
     public void DodoDie()
@@ -26,8 +26,8 @@ public class Resources : MonoBehaviour
         metal += 5;
         if(dodoDieCount == 0)
         {
-            dodoDieCount = 20;
-            melonJuice += 50;
+            dodoDieCount = 5;
+            melonJuice += 30;
         }
         else dodoDieCount--;
     }
