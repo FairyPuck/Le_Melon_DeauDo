@@ -24,7 +24,7 @@ public class GameOverUI : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    void Exit()
+    public void Exit()
     {
         SceneManager.LoadScene(0);
     }
